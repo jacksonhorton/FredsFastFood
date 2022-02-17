@@ -29,7 +29,7 @@ void printRecieptItem(string Name, double price, int qty)
      }
      else
      {
-          // prints 0 instead of "qty for $x.xx"
+          // prints 0 instead of "qty for $x.xx" if qty=0
           cout << right << setw(20) << Name << ":" << right << setw(4) << 0
                << endl;
      }
@@ -43,6 +43,11 @@ void makeChange (double total)
      cout << "How much money did you receive? ";
      cin >> moneyRecieved;
      double changeDue = moneyRecieved - total;
+     if (changeDue<0)   // if not enough money was given -> main()
+     {
+         cout << "Not enough money recieved!";
+         return;
+     }
      cout << "The amount of change due is $" << changeDue << endl;
      cout << "  That is " << int(changeDue * 100.0 + .5) << " cents."
           << endl
@@ -188,8 +193,8 @@ int main ()
      organized.
      Part 2: Very hard. Formatting still took a long time. Had to work through
      implementing all of the ideas for this project took some time to figure
-     out since I didn't look up anything. Turning the make change into a function
-     was not too bad.
+     out since I didn't look up anything. Turning the make change into a
+     function was not too bad.
 2) How long did it take you to do it (hours / days)?
      Part 1: 1 Hour
      Part 2: 3.5 hours
